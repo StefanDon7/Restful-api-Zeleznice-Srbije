@@ -29,11 +29,11 @@ public class RezervacijaController {
 	public List<Rezervacija> getRezervacijeByUserID(@RequestBody Klijent klijent) {
 		return rezervacijaService.getRezervacijeByUserID(klijent.getKlijentID());
 	}
-	@PostMapping("/add/{klijentid}/{polazakid}")
-	public Rezervacija addRezervacija(@RequestBody Klijent klijent, @RequestBody Polazak polazak) {
-		Rezervacija rezervacija=new Rezervacija(new RezervacijaCompositeKey(klijent.getKlijentID(),polazak.getPolazakID()), 
-												new  Klijent(klijent.getKlijentID()), 
-												new Polazak(polazak.getPolazakID()), 
+	@PostMapping("/add")
+	public Rezervacija addRezervacija(@RequestBody RezervacijaCompositeKey rezervacijaCompositeKey) {
+		Rezervacija rezervacija=new Rezervacija(new RezervacijaCompositeKey(rezervacijaCompositeKey.getKlijentID(),rezervacijaCompositeKey.getPolazakID()), 
+												new  Klijent(rezervacijaCompositeKey.getKlijentID()), 
+												new Polazak(rezervacijaCompositeKey.getPolazakID()), 
 												new Date());
 		return rezervacijaService.addRezervacija(rezervacija);
 	}

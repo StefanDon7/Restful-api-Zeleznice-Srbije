@@ -37,6 +37,14 @@ public class KlijentController {
 	public Klijent addNewKlijent(@RequestBody Klijent klijent) {
 		return this.klijentService.addNewKlijent(klijent);
 	}
+	@PostMapping("/getbyemail")
+	public Klijent getKlijentByEmail(@RequestBody Klijent klijent) {
+		String email=klijentService.getKlijentByEmail(klijent.getEmail());
+		return new Klijent(-1, "", email, "", "", "");
+		
+		
+		
+	}
 
 	
 }

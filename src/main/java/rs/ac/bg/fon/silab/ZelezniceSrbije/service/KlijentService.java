@@ -35,5 +35,10 @@ public class KlijentService {
 		return klijentRepository.saveAndFlush(klijent);
 	}
 
+	public String getKlijentByEmail(String email) {
+		System.out.println("getKlijentByEmail");
+		return klijentRepository.getKlijentByEmail(email);
+	}
+
 	
 }

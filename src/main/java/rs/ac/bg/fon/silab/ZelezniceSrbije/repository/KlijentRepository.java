@@ -20,5 +20,8 @@ public interface KlijentRepository extends JpaRepository<Klijent, Integer>{
 	@Query(value ="select * from Klijent where klijentid=?", nativeQuery = true)
 	Klijent getKlijentById(int id);
 	
+	@Query(value ="select email from Klijent where email=?1", nativeQuery = true)
+	String getKlijentByEmail(String email);
+	
 	
 }

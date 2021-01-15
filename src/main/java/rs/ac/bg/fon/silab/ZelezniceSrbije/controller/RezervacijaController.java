@@ -37,5 +37,13 @@ public class RezervacijaController {
 												new Date());
 		return rezervacijaService.addRezervacija(rezervacija);
 	}
+	@PostMapping("/get")
+	public Rezervacija getRezervacija(@RequestBody RezervacijaCompositeKey rezervacijaCompositeKey) {
+		Rezervacija rezervacija=new Rezervacija(new RezervacijaCompositeKey(rezervacijaCompositeKey.getKlijentID(),rezervacijaCompositeKey.getPolazakID()), 
+				new  Klijent(rezervacijaCompositeKey.getKlijentID()), 
+				new Polazak(rezervacijaCompositeKey.getPolazakID()), 
+				new Date());
+	return rezervacijaService.getRezervacije(rezervacija);
+	}
 	
 }

@@ -25,5 +25,11 @@ public class RezervacijaService {
 	public Rezervacija addRezervacija(Rezervacija rezervacija) {
 		System.out.println("Buy ticket!");
 		return this.rezervacijaRepository.save(rezervacija);
+		//return this.rezervacijaRepository.sacuvajRezervaciju(rezervacija.getKlijent().getKlijentID(),rezervacija.getPolazak().getPolazakID(),rezervacija.getDate());
+	}
+
+	public Rezervacija getRezervacije(Rezervacija rezervacija) {
+		
+		return this.rezervacijaRepository.getRezervacija(rezervacija.getKlijent().getKlijentID(),rezervacija.getPolazak().getPolazakID());
 	}	
 }

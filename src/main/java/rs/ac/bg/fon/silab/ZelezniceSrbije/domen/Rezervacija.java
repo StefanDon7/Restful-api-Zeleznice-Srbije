@@ -92,8 +92,11 @@ public class Rezervacija {
         this.date = date;
     }
 
-    @Override
-    public String toString() {
-        return "Rezervacija{" + "key=" + key + ", klijent=" + klijent + ", polazk=" + polazak + ", date=" + date + '}';
-    }
+
+	@Override
+	public String toString() {
+		return "Rezervacija: "+key;
+	}
+
+    
 }

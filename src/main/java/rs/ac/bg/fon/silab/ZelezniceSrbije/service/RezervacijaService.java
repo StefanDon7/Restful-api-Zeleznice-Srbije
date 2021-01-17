@@ -29,7 +29,15 @@ public class RezervacijaService {
 	}
 
 	public Rezervacija getRezervacije(Rezervacija rezervacija) {
-		
+		System.out.println("VRACAM TI REZERVACIJU:"+this.rezervacijaRepository.getRezervacija(rezervacija.getKlijent().getKlijentID(),rezervacija.getPolazak().getPolazakID()));
 		return this.rezervacijaRepository.getRezervacija(rezervacija.getKlijent().getKlijentID(),rezervacija.getPolazak().getPolazakID());
+	}
+
+	public void delete(Rezervacija rezervacija)  {
+		System.out.println("Delete rezervacija");
+			this.rezervacijaRepository.delete(rezervacija);
+		
+		
+//		return this.rezervacijaRepository.delete(rezervacija.getKlijent().getKlijentID(),rezervacija.getPolazak().getPolazakID());
 	}	
 }

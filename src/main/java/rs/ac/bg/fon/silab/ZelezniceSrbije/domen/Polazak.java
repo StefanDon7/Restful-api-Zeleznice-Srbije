@@ -132,9 +132,13 @@ public class Polazak  {
         this.klijenti = klijenti;
     }
 
-    @Override
-    public String toString() {
-        return naziv;
-    }
+	@Override
+	public String toString() {
+		return "Polazak [polazakID=" + polazakID + ", naziv=" + naziv + ", datumPolaska=" + datumPolaska
+				+ ", datumDolaska=" + datumDolaska + ", linija=" + linija + ", voz=" + voz + ", napomena=" + napomena
+				+ ", klijenti=" + klijenti + "]";
+	}
+
+    
 }
 

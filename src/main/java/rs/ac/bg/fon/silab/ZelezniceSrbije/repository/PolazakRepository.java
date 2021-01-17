@@ -15,7 +15,7 @@ public interface PolazakRepository extends JpaRepository<Polazak, Integer>{
 	@Query(value = "select * from polazak", nativeQuery = true)
 	List<Polazak> getAll();
 	
-	@Query(value = "select * from polazak where datumPolaska LIKE ?%", nativeQuery = true)
+	@Query(value = "select * from polazak where datumPolaska LIKE ?% order by datumPolaska asc", nativeQuery = true)
 	List<Polazak> getAllByDate(String datum);
 	
 	@Query(value="SELECT * "
@@ -52,7 +52,7 @@ public interface PolazakRepository extends JpaRepository<Polazak, Integer>{
 						+ "WHERE m1.stanicaid!=m2.stanicaid AND m1.rednibroj<m2.rednibroj AND "
 						+ "m1.stanicaid=(SELECT stanicaid FROM stanica WHERE nazivstanice=?2) AND "
 						+ "m2.stanicaid=(SELECT stanicaid FROM stanica WHERE nazivstanice=?3))) AND "
-			+ "datumpolaska LIKE ?1%", 
+			+ "datumpolaska LIKE ?1% order by datumPolaska asc", 
 			nativeQuery = true)
 	List<Polazak> getAllByDateStartAndFinalStation(String datum, String stanicaPocetna, String stanicaKrajnja);
 }	

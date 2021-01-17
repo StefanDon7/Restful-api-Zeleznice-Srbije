@@ -68,5 +68,11 @@ public class RezervacijaCompositeKey implements Serializable{
         return true;
     }
 
+	@Override
+	public String toString() {
+		return "RezervacijaCompositeKey [klijentID=" + klijentID + ", polazakID=" + polazakID + "]";
+	}
+    
+
 	
 }

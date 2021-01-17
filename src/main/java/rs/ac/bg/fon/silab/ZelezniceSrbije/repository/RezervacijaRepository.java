@@ -22,4 +22,7 @@ public interface RezervacijaRepository extends JpaRepository<Rezervacija, Intege
 	@Query(value = "select * from rezervacija where klijentid=?1 and polazakid=?2", nativeQuery = true)
 	Rezervacija getRezervacija(int klijentID, int polazakID);
 	
+//	@Query(value = "delete from rezervacija where klijentid=?1 and polazakid=?2", nativeQuery =   true)
+//	Rezervacija delete(int klijentID, int polazakID);
+	
 }

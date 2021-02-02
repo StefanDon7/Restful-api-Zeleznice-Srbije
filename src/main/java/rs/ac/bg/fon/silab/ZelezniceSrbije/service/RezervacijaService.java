@@ -36,8 +36,5 @@ public class RezervacijaService {
 	public void delete(Rezervacija rezervacija)  {
 		System.out.println("Delete rezervacija");
 			this.rezervacijaRepository.delete(rezervacija);
-		
-		
-//		return this.rezervacijaRepository.delete(rezervacija.getKlijent().getKlijentID(),rezervacija.getPolazak().getPolazakID());
 	}	
 }

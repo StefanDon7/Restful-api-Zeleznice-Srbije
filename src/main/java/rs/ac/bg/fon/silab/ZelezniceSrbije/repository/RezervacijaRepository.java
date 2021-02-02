@@ -13,7 +13,7 @@ import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Rezervacija;
 @Repository
 public interface RezervacijaRepository extends JpaRepository<Rezervacija, Integer>{
 	
-	@Query(value = "select * from rezervacija where klijentid = :klijentid", nativeQuery = true)
+	@Query(value = "select * from rezervacija where klijentid = :klijentid order by date desc", nativeQuery = true)
 	List<Rezervacija> getRezervacijeByUserID(@Param("klijentid") int klijentid);
 
 	@Query(value="INSERT INTO rezervacija VALUE(?1,?2,?3)", nativeQuery = true)
@@ -21,8 +21,5 @@ public interface RezervacijaRepository extends JpaRepository<Rezervacija, Intege
 
 	@Query(value = "select * from rezervacija where klijentid=?1 and polazakid=?2", nativeQuery = true)
 	Rezervacija getRezervacija(int klijentID, int polazakID);
-	
-//	@Query(value = "delete from rezervacija where klijentid=?1 and polazakid=?2", nativeQuery =   true)
-//	Rezervacija delete(int klijentID, int polazakID);
 	
 }

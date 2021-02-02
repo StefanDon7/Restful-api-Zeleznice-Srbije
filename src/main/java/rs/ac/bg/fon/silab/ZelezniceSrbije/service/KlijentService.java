@@ -39,6 +39,16 @@ public class KlijentService {
 		System.out.println("getKlijentByEmail");
 		return klijentRepository.getKlijentByEmail(email);
 	}
+	
+	public int updatePassword(Klijent klijent) {
+		System.out.println("Update klijent lozinka");
+		return klijentRepository.updatePassword(klijent.getLozinka(),klijent.getKlijentID());
+	}
+	public int updateUsername(Klijent klijent) {
+		System.out.println("Update klijent username");
+		return klijentRepository.updateUsername(klijent.getKorisnickoIme(),klijent.getKlijentID());
+	}
+	
 
 	
 }

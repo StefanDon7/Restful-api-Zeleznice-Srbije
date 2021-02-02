@@ -4,14 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Klijent;
-import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Polazak;
 import rs.ac.bg.fon.silab.ZelezniceSrbije.service.KlijentService;
 
 @RestController
@@ -41,10 +39,18 @@ public class KlijentController {
 	public Klijent getKlijentByEmail(@RequestBody Klijent klijent) {
 		String email=klijentService.getKlijentByEmail(klijent.getEmail());
 		return new Klijent(-1, "", email, "", "", "");
-		
-		
-		
 	}
+	@PostMapping("/updateusername")
+	public int updateUsername(@RequestBody Klijent klijent) {
+		System.out.println(klijent);
+		return this.klijentService.updateUsername(klijent);
+	}
+	@PostMapping("/updatepassword")
+	public int updatePassword(@RequestBody Klijent klijent) {
+		System.out.println(klijent);
+		return this.klijentService.updatePassword(klijent);
+	}
+	
 
 	
 }

@@ -7,7 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "klijent")
 @Entity
 @Table(name = "klijent")
 public class Klijent{
@@ -17,7 +21,9 @@ public class Klijent{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int klijentID;
    
-   @Column(name = "email")
+    @Email(message = "Email adresa mora biti validna!")
+    @Size(min=2,message="Email mora imati barem 2 karaktera!")
+    @Column(name = "email")
     private String email;
     
    @Column(name = "korisnickoime")

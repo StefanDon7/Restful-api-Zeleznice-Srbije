@@ -8,8 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+
 
 @XmlRootElement(name = "klijent")
 @Entity
@@ -17,16 +19,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Klijent{
 	
     @Id
-    @Column(name = "klijentid", insertable = false, updatable = false)
+    @Column(name = "klijentid")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int klijentID;
    
     @Email(message = "Email adresa mora biti validna!")
     @Size(min=2,message="Email mora imati barem 2 karaktera!")
+    @NotBlank(message = "Email is mandatory")
     @Column(name = "email")
     private String email;
     
    @Column(name = "korisnickoime")
+   @Size(min=2,message="Size mora imati barem 2 karaktera!")
     private String korisnickoIme;
     
     @Column(name = "ime")
@@ -52,14 +56,6 @@ public class Klijent{
     
     public Klijent(int klijentID) {
         this.klijentID = klijentID;
-    }
-
-    public int getId() {
-        return klijentID;
-    }
-
-    public void setId(int id) {
-        this.klijentID = id;
     }
 
     public int getKlijentID() {

@@ -10,9 +10,12 @@ public class ConfigCORS implements WebMvcConfigurer {
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 
-		registry.addMapping("/**").allowedOrigins("*").allowedMethods("POST", "PUT", "GET", "DELETE", "OPTIONS")
+		registry.addMapping("/**")
+				.allowedOrigins("*")
+				.allowedMethods("POST", "PUT", "GET", "DELETE", "OPTIONS")
 				.allowedHeaders("Content-Type", "Origin")
-				.exposedHeaders("X-Total-Count", "Location", "Access-Control-Allow-Origin").allowCredentials(false)
+				.exposedHeaders("X-Total-Count", "Location", "Access-Control-Allow-Origin")
+				.allowCredentials(false)
 				.maxAge(6000);
 	}
 }

@@ -15,16 +15,15 @@ public class MedjustanicaCompositeKey implements Serializable {
 
 	@Column(name = "stanicaID")
 	private int stanicaID;
-	
+
 	public MedjustanicaCompositeKey() {
 
 	}
-	
+
 	public MedjustanicaCompositeKey(int linijaID, int stanicaID) {
 		this.linijaID = linijaID;
 		this.stanicaID = stanicaID;
 	}
-
 
 	public int getLinijaID() {
 		return linijaID;
@@ -41,6 +40,7 @@ public class MedjustanicaCompositeKey implements Serializable {
 	public void setStanicaID(int stanicaID) {
 		this.stanicaID = stanicaID;
 	}
+
 
 	@Override
 	public int hashCode() {
@@ -66,8 +66,5 @@ public class MedjustanicaCompositeKey implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
+
 }

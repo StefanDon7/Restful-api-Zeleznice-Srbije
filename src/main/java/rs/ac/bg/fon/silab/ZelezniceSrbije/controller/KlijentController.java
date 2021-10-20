@@ -7,19 +7,21 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Klijent;
-import rs.ac.bg.fon.silab.ZelezniceSrbije.exception.RecordNotFoundException;
 import rs.ac.bg.fon.silab.ZelezniceSrbije.service.KlijentService;
 
 @RestController
 @RequestMapping("/api/klijent")
 public class KlijentController {
+	
 	@Autowired
 	private KlijentService klijentService;
 
@@ -34,18 +36,11 @@ public class KlijentController {
 	}
 	@PostMapping("/getbyid")
 	public Klijent getKlijentById(@RequestBody Klijent klijent) {
-		Klijent k=this.klijentService.getKlijentById(klijent.getId());
-		if(k == null) {
-	         throw new RecordNotFoundException("Invalid employee id : " +klijent.getEmail());
-	    }
-		return this.klijentService.getKlijentById(klijent.getId());
+		return this.klijentService.getKlijentById(klijent.getKlijentID());
 	}
 	@PostMapping("/add")
-	public ResponseEntity<Klijent> addNewKlijent(@Valid @RequestBody Klijent klijent) {
+	public ResponseEntity<Klijent> addNewKlijent(@Valid @RequestBody Klijent klijent,BindingResult errors) {
 		Klijent k=this.klijentService.addNewKlijent(klijent);
-		if(k == null) {
-	         throw new RecordNotFoundException("Invalid employee id : " +k.getId());
-	    }
 		return new ResponseEntity<Klijent>(k, HttpStatus.OK);
 	}
 	@PostMapping("/getbyemail")
@@ -53,12 +48,12 @@ public class KlijentController {
 		String email=klijentService.getKlijentByEmail(klijent.getEmail());
 		return new Klijent(-1, "", email, "", "", "");
 	}
-	@PostMapping("/updateusername")
+	@PutMapping("/updateusername")
 	public int updateUsername(@RequestBody Klijent klijent) {
 		System.out.println(klijent);
 		return this.klijentService.updateUsername(klijent);
 	}
-	@PostMapping("/updatepassword")
+	@PutMapping("/updatepassword")
 	public int updatePassword(@RequestBody Klijent klijent) {
 		System.out.println(klijent);
 		return this.klijentService.updatePassword(klijent);

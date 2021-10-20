@@ -51,7 +51,7 @@ public class Rezervacija {
         this.klijent = klijent;
         this.polazak = polazak;
         this.date = date;
-        this.key = new RezervacijaCompositeKey(klijent.getId(), polazak.getPolazakID());
+        this.key = new RezervacijaCompositeKey(klijent.getKlijentID(), polazak.getPolazakID());
     }
     
     public RezervacijaCompositeKey getKey() {
@@ -70,7 +70,7 @@ public class Rezervacija {
         this.klijent = klijent;
         if(this.key == null)
             this.key = new RezervacijaCompositeKey();
-        this.key.setKlijentID(klijent.getId());
+        this.key.setKlijentID(klijent.getKlijentID());
     }
 
     public Polazak getPolazak() {

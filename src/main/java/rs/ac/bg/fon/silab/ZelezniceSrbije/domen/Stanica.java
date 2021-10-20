@@ -31,9 +31,17 @@ public class Stanica {
     
     public Stanica() {
     }
+    
 
 
-    public int getStanicaID() {
+    public Stanica(int stanicaID) {
+	super();
+	this.stanicaID = stanicaID;
+}
+
+
+
+	public int getStanicaID() {
         return stanicaID;
     }
 

@@ -15,9 +15,28 @@ public class MedjustanicaService {
 	
 	@Autowired
 	private MedjustanicaRepository medjustanicaRepository;
+	
+	public List<Medjustanica> getAll() {
+		return this.medjustanicaRepository.getAll();
+	}
+
 
 	public List<Medjustanica> getMedjustaniceByLinijaID(int linijaID) {
 		return this.medjustanicaRepository.getMedjustaniceByLinijaID(linijaID);
 	}
+
+	public Medjustanica add(Medjustanica m) {
+		return this.medjustanicaRepository.save(m);
+	}
+
+	public int update(Medjustanica m) {
+		System.out.println(m.getRedniBroj()+" "+m.getKey().getLinijaID()+" "+m.getKey().getStanicaID());
+		return this.medjustanicaRepository.update(m.getRedniBroj(),m.getKey().getLinijaID(),m.getKey().getStanicaID());
+	}
+	
+	public int delete(Medjustanica m) {
+		return this.medjustanicaRepository.delete(m.getKey().getLinijaID(),m.getKey().getStanicaID());
+	}
+	
 
 }

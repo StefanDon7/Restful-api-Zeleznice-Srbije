@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Medjustanica;
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Rezervacija;
-import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.compositeKey.RezervacijaCompositeKey;
 import rs.ac.bg.fon.silab.ZelezniceSrbije.repository.RezervacijaRepository;
 
 @Service

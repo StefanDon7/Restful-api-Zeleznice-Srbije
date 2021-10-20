@@ -19,4 +19,11 @@ public class StanicaService {
 		System.out.println("Get all stations");
 		return stanicaRepository.getAll();
 	}
+
+	public Stanica add(Stanica stanica) {
+		System.out.println("add new stanica: "+stanica);
+		return stanicaRepository.saveAndFlush(stanica);
+	}
+
+	
 }

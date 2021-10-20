@@ -15,11 +15,11 @@ import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.compositeKey.MedjustanicaComposi
 @Table(name = "medjustanica")
 public class Medjustanica {
 
-	@JsonIgnore
+	
 	@EmbeddedId
 	MedjustanicaCompositeKey key;
 
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name = "linijaid", insertable = false, updatable = false)
 	private Linija linija;

@@ -35,4 +35,16 @@ public class PolazakService {
         return polazakRepository.getNumberOfReservation(polazakID);
     }
 
+    public Polazak add(Polazak polazak) {
+        return polazakRepository.save(polazak);
+    }
+
+    public int update(Polazak polazak) {
+        return polazakRepository.update(polazak.getPolazakID(), polazak.getNapomena());
+    }
+
+    public void delete(Polazak polazak) {
+        polazakRepository.delete(polazak);
+    }
+
 }

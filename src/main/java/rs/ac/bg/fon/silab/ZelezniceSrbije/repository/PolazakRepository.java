@@ -3,6 +3,7 @@ package rs.ac.bg.fon.silab.ZelezniceSrbije.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -57,4 +58,9 @@ public interface PolazakRepository extends JpaRepository<Polazak, Integer> {
 
     @Query(value = "SELECT COUNT(*) AS brojrezervacija FROM rezervacija WHERE polazakid=?1 GROUP BY polazakid ", nativeQuery = true)
     public int getNumberOfReservation(int polazakID);
+
+    @Modifying
+    @Query(value = "update polazak set napomena = ?2 where polazakid=?1", nativeQuery = true)
+    public int update(int polazakID, String napomena);
+
 }

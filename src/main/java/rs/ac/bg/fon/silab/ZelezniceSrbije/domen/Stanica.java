@@ -18,7 +18,7 @@ public class Stanica {
     private int stanicaID;
     
     @Column(name="nazivstanice")
-    private String nazivStanice;
+    private String naziv;
     
     @ManyToOne
     @JoinColumn(name = "mestoid")
@@ -49,12 +49,12 @@ public class Stanica {
         this.stanicaID = stanicaID;
     }
 
-    public String getNazivStanice() {
-        return nazivStanice;
+    public String getNaziv() {
+        return naziv;
     }
 
-    public void setNazivStanice(String nazivStanice) {
-        this.nazivStanice = nazivStanice;
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
     }
 
     public Mesto getMesto() {
@@ -67,7 +67,7 @@ public class Stanica {
 
     @Override
     public String toString() {
-        return nazivStanice;
+        return naziv;
     }
     
     

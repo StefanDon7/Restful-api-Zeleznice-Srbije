@@ -12,43 +12,48 @@ import rs.ac.bg.fon.silab.ZelezniceSrbije.repository.KlijentRepository;
 @Service
 @Transactional
 public class KlijentService {
-	
-	@Autowired
-	private KlijentRepository klijentRepository;
-	
-	public List<Klijent> getAllKlijent() {
-		System.out.println("getAllUsers");
-		return klijentRepository.getAllKlijent();
-	}
-	
-	public Klijent getByEmailAndPassword(String email, String password) {
-		System.out.println("get "+email+" "+password);
-		return klijentRepository.getByEmailAndPassword(email, password);
-	}
-	public Klijent getKlijentById(int id) {
-		System.out.println("get "+id);
-		return klijentRepository.getKlijentById(id);
-	}
 
-	public Klijent addNewKlijent(Klijent klijent) {
-		System.out.println("add new klijent: "+klijent);
-		return klijentRepository.saveAndFlush(klijent);
-	}
+    @Autowired
+    private KlijentRepository klijentRepository;
 
-	public String getKlijentByEmail(String email) {
-		System.out.println("getKlijentByEmail");
-		return klijentRepository.getKlijentByEmail(email);
-	}
-	
-	public int updatePassword(Klijent klijent) {
-		System.out.println("Update klijent lozinka");
-		return klijentRepository.updatePassword(klijent.getLozinka(),klijent.getKlijentID());
-	}
-	public int updateUsername(Klijent klijent) {
-		System.out.println("Update klijent username");
-		return klijentRepository.updateUsername(klijent.getKorisnickoIme(),klijent.getKlijentID());
-	}
-	
+    public List<Klijent> getAllKlijent() {
+        System.out.println("getAllUsers");
+        return klijentRepository.getAllKlijent();
+    }
 
-	
+    public Klijent getByEmailAndPassword(String email, String password) {
+        System.out.println("get " + email + " " + password);
+        return klijentRepository.getByEmailAndPassword(email, password);
+    }
+
+    public Klijent getKlijentById(int id) {
+        System.out.println("get " + id);
+        return klijentRepository.getKlijentById(id);
+    }
+
+    public Klijent addNewKlijent(Klijent klijent) {
+        System.out.println("add new klijent: " + klijent);
+        return klijentRepository.saveAndFlush(klijent);
+    }
+
+    public String getKlijentByEmail(String email) {
+        System.out.println("getKlijentByEmail");
+        return klijentRepository.getKlijentByEmail(email);
+    }
+
+    public int update(Klijent klijent) {
+        System.out.println("Update klijent username i lozinka");
+        return klijentRepository.update(klijent.getKorisnickoIme(),klijent.getLozinka(), klijent.getKlijentID());
+    }
+
+    public int updatePassword(Klijent klijent) {
+        System.out.println("Update klijent lozinka");
+        return klijentRepository.updatePassword(klijent.getLozinka(), klijent.getKlijentID());
+    }
+
+    public int updateUsername(Klijent klijent) {
+        System.out.println("Update klijent username");
+        return klijentRepository.updateUsername(klijent.getKorisnickoIme(), klijent.getKlijentID());
+    }
+
 }

@@ -30,12 +30,11 @@ public class MedjustanicaService {
 	}
 
 	public int update(Medjustanica m) {
-		System.out.println(m.getRedniBroj()+" "+m.getKey().getLinijaID()+" "+m.getKey().getStanicaID());
-		return this.medjustanicaRepository.update(m.getRedniBroj(),m.getKey().getLinijaID(),m.getKey().getStanicaID());
+		return this.medjustanicaRepository.update(m.getRedniBroj(),m.getLinija().getLinijaID(),m.getStanica().getStanicaID());
 	}
 	
 	public int delete(Medjustanica m) {
-		return this.medjustanicaRepository.delete(m.getKey().getLinijaID(),m.getKey().getStanicaID());
+		return this.medjustanicaRepository.delete(m.getMedjustanicaID());
 	}
 	
 

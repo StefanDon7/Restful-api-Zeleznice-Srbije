@@ -1,66 +1,56 @@
 package rs.ac.bg.fon.silab.ZelezniceSrbije.domen;
 
-
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.compositeKey.RezervacijaCompositeKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 
 @Entity
 @Table(name = "rezervacija")
 public class Rezervacija {
-	
-	@JsonIgnore
-    @EmbeddedId
-    RezervacijaCompositeKey key;
-    
+
+    @Id
+    @Column(name = "rezervacijaID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int rezervacijaID;
+
     @ManyToOne
-    @JoinColumn(name = "klijentid", insertable = false, updatable = false)
+    @JoinColumn(name = "klijentid")
     private Klijent klijent;
-    
+
     @ManyToOne
-    @JoinColumn(name = "polazakid", insertable = false, updatable = false)
+    @JoinColumn(name = "polazakid")
     private Polazak polazak;
-    
+
     @Column(name = "date")
     private Date date;
 
     public Rezervacija() {
     }
-    
 
-    public Rezervacija(RezervacijaCompositeKey key, Klijent klijent, Polazak polazak, Date date) {
-		super();
-		this.key = key;
-		this.klijent = klijent;
-		this.polazak = polazak;
-		this.date = date;
-	}
-
-
-	public Rezervacija(Klijent klijent, Polazak polazak, Date date) {
+    public Rezervacija(int rezervacijaID, Klijent klijent, Polazak polazak, Date date) {
+        this.rezervacijaID = rezervacijaID;
         this.klijent = klijent;
         this.polazak = polazak;
         this.date = date;
-        this.key = new RezervacijaCompositeKey(klijent.getKlijentID(), polazak.getPolazakID());
-    }
-    
-    public RezervacijaCompositeKey getKey() {
-        return key;
     }
 
-    public void setKey(RezervacijaCompositeKey key) {
-        this.key = key;
+    public int getRezervacijaID() {
+        return rezervacijaID;
     }
+
+    public void setRezervacijaID(int rezervacijaID) {
+        this.rezervacijaID = rezervacijaID;
+    }
+    
 
     public Klijent getKlijent() {
         return klijent;
@@ -68,9 +58,7 @@ public class Rezervacija {
 
     public void setKlijent(Klijent klijent) {
         this.klijent = klijent;
-        if(this.key == null)
-            this.key = new RezervacijaCompositeKey();
-        this.key.setKlijentID(klijent.getKlijentID());
+
     }
 
     public Polazak getPolazak() {
@@ -79,9 +67,7 @@ public class Rezervacija {
 
     public void setPolazak(Polazak polazak) {
         this.polazak = polazak;
-        if(this.key == null)
-            this.key = new RezervacijaCompositeKey();
-        this.key.setPolazakID(polazak.getPolazakID());
+
     }
 
     public Date getDate() {
@@ -92,11 +78,11 @@ public class Rezervacija {
         this.date = date;
     }
 
-
-	@Override
-	public String toString() {
-		return "Rezervacija: "+key;
-	}
+    @Override
+    public String toString() {
+        return "Rezervacija{" + "rezervacijaID=" + rezervacijaID + ", klijent=" + klijent + ", polazak=" + polazak + ", date=" + date + '}';
+    }
 
     
+
 }

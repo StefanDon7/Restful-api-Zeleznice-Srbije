@@ -13,25 +13,22 @@ import rs.ac.bg.fon.silab.ZelezniceSrbije.repository.RezervacijaRepository;
 @Transactional
 public class RezervacijaService {
 
-	@Autowired
-	private RezervacijaRepository rezervacijaRepository;
-	
-	public List<Rezervacija> getRezervacijeByUserID(int klijentid) {
-		return this.rezervacijaRepository.getRezervacijeByUserID(klijentid);
-	}
-	
-	public Rezervacija addRezervacija(Rezervacija rezervacija) {
-		System.out.println("Buy ticket!");
-		return this.rezervacijaRepository.save(rezervacija);
-		//return this.rezervacijaRepository.sacuvajRezervaciju(rezervacija.getKlijent().getKlijentID(),rezervacija.getPolazak().getPolazakID(),rezervacija.getDate());
-	}
+    @Autowired
+    private RezervacijaRepository rezervacijaRepository;
 
-	public Rezervacija getRezervacije(Rezervacija rezervacija) {
-		return this.rezervacijaRepository.getRezervacija(rezervacija.getKlijent().getKlijentID(),rezervacija.getPolazak().getPolazakID());
-	}
+    public List<Rezervacija> getRezervacijeByUserID(int klijentid) {
+        return this.rezervacijaRepository.getRezervacijeByUserID(klijentid);
+    }
 
-	public void delete(Rezervacija rezervacija)  {
-		System.out.println("Delete rezervacija");
-			this.rezervacijaRepository.delete(rezervacija);
-	}	
+    public void addRezervacija(Rezervacija rezervacija) {
+        this.rezervacijaRepository.save(rezervacija);
+    }
+
+    public Rezervacija getRezervacije(Rezervacija rezervacija) {
+        return this.rezervacijaRepository.getRezervacija(rezervacija.getKlijent().getKlijentID(), rezervacija.getPolazak().getPolazakID());
+    }
+
+    public void delete(Rezervacija rezervacija) {
+        this.rezervacijaRepository.delete(rezervacija);
+    }
 }

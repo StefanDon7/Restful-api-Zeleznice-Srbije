@@ -13,18 +13,20 @@ import rs.ac.bg.fon.silab.ZelezniceSrbije.repository.LinijaRepository;
 @Transactional
 public class LinijaService {
 
-	@Autowired
-	private LinijaRepository linijaRepository;
-	
-	public List<Linija> findAll() {
-		System.out.println("getAllLinija");
-		return linijaRepository.findAll();
-	}
+    @Autowired
+    private LinijaRepository linijaRepository;
 
-	public void delete(int linijaID) {
-		linijaRepository.deleteById(linijaID);
-	}
+    public List<Linija> findAll() {
+        System.out.println("getAllLinija");
+        return linijaRepository.findAll();
+    }
 
-	
+    public void delete(Linija linija) {
+        linijaRepository.delete(linija);
+    }
+
+    public Linija add(Linija linija) {
+        return linijaRepository.saveAndFlush(linija);
+    }
+
 }
-

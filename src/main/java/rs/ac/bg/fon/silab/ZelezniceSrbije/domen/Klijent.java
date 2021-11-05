@@ -29,7 +29,7 @@ public class Klijent {
     private String email;
 
     @Column(name = "korisnickoime")
-    @Size(min = 2, message = "Size mora imati barem 2 karaktera!")
+    @Size(min = 2, message = "Korisnicko ime mora imati barem 2 karaktera!")
     private String korisnickoIme;
 
     @Column(name = "ime")

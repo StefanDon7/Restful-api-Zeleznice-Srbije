@@ -1,50 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package rs.ac.bg.fon.silab.ZelezniceSrbije.service;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Polazak;
-import rs.ac.bg.fon.silab.ZelezniceSrbije.repository.PolazakRepository;
 
-@Service
-@Transactional
-public class PolazakService {
+/**
+ *
+ * @author Stefan
+ */
+public interface PolazakService {
 
-    @Autowired
-    private PolazakRepository polazakRepository;
+    List<Polazak> getAll();
 
-    public List<Polazak> getAll() {
-        System.out.println("Get all");
-        return polazakRepository.getAll();
-    }
+    List<Polazak> getAllByDate(String datum);
 
-    public List<Polazak> getAllByDate(String datum) {
-        System.out.println("Get all by date");
-        return polazakRepository.getAllByDate(datum);
-    }
+    List<Polazak> getAllByDateStartAndFinalStation(String datum, String stanicaPocetna, String stanicaKrajnja);
 
-    public List<Polazak> getAllByDateStartAndFinalStation(String datum, String stanicaPocetna, String stanicaKrajnja) {
-        System.out.println("Get all by date,firstStation and last Station");
-        return polazakRepository.getAllByDateStartAndFinalStation(datum, stanicaPocetna, stanicaKrajnja);
-    }
+    int getNumberOfReservation(int polazakID);
 
-    public int getNumberOfReservation(int polazakID) {
-        return polazakRepository.getNumberOfReservation(polazakID);
-    }
+    Polazak add(Polazak polazak);
 
-    public Polazak add(Polazak polazak) {
-        return polazakRepository.save(polazak);
-    }
+    int update(Polazak polazak);
 
-    public int update(Polazak polazak) {
-        return polazakRepository.update(polazak.getPolazakID(), polazak.getNapomena());
-    }
-
-    public void delete(Polazak polazak) {
-        polazakRepository.delete(polazak);
-    }
+    void delete(Polazak polazak);
 
 }

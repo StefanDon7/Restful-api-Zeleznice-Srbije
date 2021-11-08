@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Polazak;
-import rs.ac.bg.fon.silab.ZelezniceSrbije.service.PolazakService;
+import rs.ac.bg.fon.silab.ZelezniceSrbije.service.impl.PolazakServiceImpl;
 
 @RestController
 @RequestMapping("/api/polazak")
 public class PolazakController {
 
     @Autowired
-    private PolazakService polazakService;
+    private PolazakServiceImpl polazakService;
 
     @GetMapping("/all")
     public List<Polazak> getAll() {

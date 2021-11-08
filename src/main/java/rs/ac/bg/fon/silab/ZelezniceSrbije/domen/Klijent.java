@@ -24,7 +24,6 @@ public class Klijent {
 
     @Email(message = "Email adresa mora biti validna!")
     @NotBlank(message = "Email is mandatory")
-    @NotNull(message = "Email ne sme biti null")
     @Column(name = "email")
     private String email;
 

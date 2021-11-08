@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Stanica;
-import rs.ac.bg.fon.silab.ZelezniceSrbije.service.StanicaService;
+import rs.ac.bg.fon.silab.ZelezniceSrbije.service.impl.StanicaServiceImpl;
 
 @RestController
 @RequestMapping("/api/stanica")
 public class StanicaController {
 	
 	@Autowired
-	private StanicaService stanicaService;
+	private StanicaServiceImpl stanicaService;
 
 	@GetMapping("/all")
 	public List<Stanica> getAll() {

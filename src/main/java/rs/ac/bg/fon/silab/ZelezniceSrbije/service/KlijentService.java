@@ -1,59 +1,33 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package rs.ac.bg.fon.silab.ZelezniceSrbije.service;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Klijent;
-import rs.ac.bg.fon.silab.ZelezniceSrbije.repository.KlijentRepository;
 
-@Service
-@Transactional
-public class KlijentService {
+/**
+ *
+ * @author Stefan
+ */
+public interface KlijentService {
 
-    @Autowired
-    private KlijentRepository klijentRepository;
+    List<Klijent> getAllKlijent();
 
-    public List<Klijent> getAllKlijent() {
-        System.out.println("getAllUsers");
-        return klijentRepository.getAllKlijent();
-    }
+    Klijent getByEmailAndPassword(String email, String password);
 
-    public Klijent getByEmailAndPassword(String email, String password) {
-        System.out.println("get " + email + " " + password);
-        return klijentRepository.getByEmailAndPassword(email, password);
-    }
+    Klijent getKlijentById(int id);
 
-    public Klijent getKlijentById(int id) {
-        System.out.println("get " + id);
-        return klijentRepository.getKlijentById(id);
-    }
+    Klijent addNewKlijent(Klijent klijent);
 
-    public Klijent addNewKlijent(Klijent klijent) {
-        System.out.println("add new klijent: " + klijent);
-        return klijentRepository.saveAndFlush(klijent);
-    }
+    String getKlijentByEmail(String email);
 
-    public String getKlijentByEmail(String email) {
-        System.out.println("getKlijentByEmail");
-        return klijentRepository.getKlijentByEmail(email);
-    }
+    int update(Klijent klijent);
 
-    public int update(Klijent klijent) {
-        System.out.println("Update klijent username i lozinka");
-        return klijentRepository.update(klijent.getKorisnickoIme(),klijent.getLozinka(), klijent.getKlijentID());
-    }
+    int updatePassword(Klijent klijent);
 
-    public int updatePassword(Klijent klijent) {
-        System.out.println("Update klijent lozinka");
-        return klijentRepository.updatePassword(klijent.getLozinka(), klijent.getKlijentID());
-    }
-
-    public int updateUsername(Klijent klijent) {
-        System.out.println("Update klijent username");
-        return klijentRepository.updateUsername(klijent.getKorisnickoIme(), klijent.getKlijentID());
-    }
+    int updateUsername(Klijent klijent);
 
 }

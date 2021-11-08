@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.TipLinije;
-import rs.ac.bg.fon.silab.ZelezniceSrbije.service.TipLinijeService;
+import rs.ac.bg.fon.silab.ZelezniceSrbije.service.impl.TipLinijeServiceImpl;
 
 @RestController
 @RequestMapping("/api/tipLinije")
 public class TipLinijeController {
 
 	@Autowired
-	private TipLinijeService tipLinijeService;
+	private TipLinijeServiceImpl tipLinijeService;
 	
 	@GetMapping("/all")
 	public List<TipLinije> getAllTipLinije() {

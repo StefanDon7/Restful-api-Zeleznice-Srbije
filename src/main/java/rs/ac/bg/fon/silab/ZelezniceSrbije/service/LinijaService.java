@@ -1,32 +1,22 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package rs.ac.bg.fon.silab.ZelezniceSrbije.service;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Linija;
-import rs.ac.bg.fon.silab.ZelezniceSrbije.repository.LinijaRepository;
 
-@Service
-@Transactional
-public class LinijaService {
+/**
+ *
+ * @author Stefan
+ */
+public interface LinijaService {
 
-    @Autowired
-    private LinijaRepository linijaRepository;
+     List<Linija> findAll();
 
-    public List<Linija> findAll() {
-        System.out.println("getAllLinija");
-        return linijaRepository.findAll();
-    }
+    public void delete(Linija linija);
 
-    public void delete(Linija linija) {
-        linijaRepository.delete(linija);
-    }
-
-    public Linija add(Linija linija) {
-        return linijaRepository.saveAndFlush(linija);
-    }
-
+    public Linija add(Linija linija);
 }

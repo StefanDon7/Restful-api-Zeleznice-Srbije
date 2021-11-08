@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Klijent;
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Rezervacija;
-import rs.ac.bg.fon.silab.ZelezniceSrbije.service.RezervacijaService;
+import rs.ac.bg.fon.silab.ZelezniceSrbije.service.impl.RezervacijaServiceImpl;
 
 @RestController
 @RequestMapping("/api/rezervacija")
 public class RezervacijaController {
 
     @Autowired
-    private RezervacijaService rezervacijaService;
+    private RezervacijaServiceImpl rezervacijaService;
 
     @PostMapping("/klijent/all")
     public List<Rezervacija> getRezervacijeByUserID(@RequestBody Klijent klijent) {

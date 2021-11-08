@@ -1,34 +1,26 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package rs.ac.bg.fon.silab.ZelezniceSrbije.service;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Rezervacija;
-import rs.ac.bg.fon.silab.ZelezniceSrbije.repository.RezervacijaRepository;
 
-@Service
-@Transactional
-public class RezervacijaService {
+/**
+ *
+ * @author Stefan
+ */
+public interface RezervacijaService {
 
-    @Autowired
-    private RezervacijaRepository rezervacijaRepository;
+    List<Rezervacija> getRezervacijeByUserID(int klijentid);
 
-    public List<Rezervacija> getRezervacijeByUserID(int klijentid) {
-        return this.rezervacijaRepository.getRezervacijeByUserID(klijentid);
-    }
+    void addRezervacija(Rezervacija rezervacija);
 
-    public void addRezervacija(Rezervacija rezervacija) {
-        this.rezervacijaRepository.save(rezervacija);
-    }
+    Rezervacija getRezervacije(Rezervacija rezervacija);
 
-    public Rezervacija getRezervacije(Rezervacija rezervacija) {
-        return this.rezervacijaRepository.getRezervacija(rezervacija.getKlijent().getKlijentID(), rezervacija.getPolazak().getPolazakID());
-    }
+    void delete(Rezervacija rezervacija);
+;
 
-    public void delete(Rezervacija rezervacija) {
-        this.rezervacijaRepository.delete(rezervacija);
-    }
 }

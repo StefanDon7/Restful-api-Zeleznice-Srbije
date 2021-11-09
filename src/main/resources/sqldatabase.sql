@@ -22,14 +22,14 @@ DROP TABLE IF EXISTS `klijent`;
 
 CREATE TABLE `klijent` (
   `KlijentID` int(255) NOT NULL AUTO_INCREMENT,
-  `Email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `KorisnickoIme` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Ime` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Prezime` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Lozinka` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `KorisnickoIme` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `Ime` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `Prezime` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `Lozinka` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`KlijentID`),
   UNIQUE KEY `UNIQUE` (`Email`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `klijent` */
 
@@ -48,11 +48,11 @@ DROP TABLE IF EXISTS `linija`;
 CREATE TABLE `linija` (
   `LinijaID` int(255) NOT NULL AUTO_INCREMENT,
   `NazivLinije` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Minutaza` int(255) DEFAULT NULL,
+  `Minutaza` int(255) NOT NULL,
   `Kilometraza` float DEFAULT NULL,
-  `StanicaIDPolazna` int(255) DEFAULT NULL,
-  `StanicaIDKrajnja` int(255) DEFAULT NULL,
-  `TipLinijeID` int(255) DEFAULT NULL,
+  `StanicaIDPolazna` int(255) NOT NULL,
+  `StanicaIDKrajnja` int(255) NOT NULL,
+  `TipLinijeID` int(255) NOT NULL,
   PRIMARY KEY (`LinijaID`),
   UNIQUE KEY `UNIQUE` (`StanicaIDPolazna`,`StanicaIDKrajnja`,`TipLinijeID`),
   KEY `FK_pocetna` (`StanicaIDPolazna`),
@@ -79,7 +79,7 @@ CREATE TABLE `medjustanica` (
   `medjustanicaID` int(255) NOT NULL AUTO_INCREMENT,
   `StanicaID` int(255) NOT NULL,
   `LinijaID` int(255) NOT NULL,
-  `RedniBroj` int(255) DEFAULT NULL,
+  `RedniBroj` int(255) NOT NULL,
   PRIMARY KEY (`medjustanicaID`),
   UNIQUE KEY `Unique` (`StanicaID`,`LinijaID`),
   KEY `LinijaID` (`LinijaID`),
@@ -129,10 +129,10 @@ insert  into `medjustanica`(`medjustanicaID`,`StanicaID`,`LinijaID`,`RedniBroj`)
 DROP TABLE IF EXISTS `mesto`;
 
 CREATE TABLE `mesto` (
-  `MestoID` int(255) NOT NULL,
-  `NazivMesta` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MestoID` int(255) NOT NULL AUTO_INCREMENT,
+  `NazivMesta` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`MestoID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `mesto` */
 
@@ -199,17 +199,17 @@ DROP TABLE IF EXISTS `polazak`;
 CREATE TABLE `polazak` (
   `PolazakID` int(255) NOT NULL AUTO_INCREMENT,
   `Naziv` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `DatumPolaska` datetime DEFAULT NULL,
-  `DatumDolaska` datetime DEFAULT NULL,
-  `LinijaID` int(255) DEFAULT NULL,
-  `VozID` int(255) DEFAULT NULL,
+  `DatumPolaska` datetime NOT NULL,
+  `DatumDolaska` datetime NOT NULL,
+  `LinijaID` int(255) NOT NULL,
+  `VozID` int(255) NOT NULL,
   `Napomena` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`PolazakID`),
   KEY `FK_LinijaID` (`LinijaID`),
   KEY `FK_VozID` (`VozID`),
   CONSTRAINT `FK_LinijaID` FOREIGN KEY (`LinijaID`) REFERENCES `linija` (`LinijaID`) ON UPDATE CASCADE,
   CONSTRAINT `FK_VozID` FOREIGN KEY (`VozID`) REFERENCES `voz` (`VozID`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `polazak` */
 
@@ -309,7 +309,8 @@ insert  into `polazak`(`PolazakID`,`Naziv`,`DatumPolaska`,`DatumDolaska`,`Linija
 (167,'NOVI SAD - SUBOTICA (Brzi voz) [14.02.2020 04:00 -> 14.02.2020 07:06]','2020-02-14 04:00:00','2020-02-14 07:06:00',5,1,'/'),
 (168,'NOVI SAD - SUBOTICA (Brzi voz) [15.02.2020 04:00 -> 15.02.2020 07:06]','2020-02-15 04:00:00','2020-02-15 07:06:00',5,1,'/'),
 (169,'NOVI SAD - SUBOTICA (Brzi voz) [16.02.2020 04:00 -> 16.02.2020 07:06]','2020-02-16 04:00:00','2020-02-16 07:06:00',5,1,'/'),
-(170,'NOVI SAD - SUBOTICA (Brzi voz) [23.04.2020 00:00 -> 23.04.2020 03:06]','2020-04-23 00:00:00','2020-04-23 03:06:00',5,5,'/');
+(170,'NOVI SAD - SUBOTICA (Brzi voz) [23.04.2020 00:00 -> 23.04.2020 03:06]','2020-04-23 00:00:00','2020-04-23 03:06:00',5,5,'BLABLABLA'),
+(171,'SUBOTICAdsgagasdgsadgs - NOVI SAD (Brzi voz) [26.10.2021 00:00 - 26.10.2021 03:06]','2020-02-04 00:00:00','2020-02-04 00:00:00',3,1,'/');
 
 /*Table structure for table `rezervacija` */
 
@@ -326,7 +327,7 @@ CREATE TABLE `rezervacija` (
   KEY `KlijentID` (`KlijentID`),
   CONSTRAINT `rezervacija_ibfk_1` FOREIGN KEY (`KlijentID`) REFERENCES `klijent` (`KlijentID`),
   CONSTRAINT `rezervacija_ibfk_2` FOREIGN KEY (`PolazakID`) REFERENCES `polazak` (`PolazakID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `rezervacija` */
 
@@ -338,7 +339,8 @@ insert  into `rezervacija`(`RezervacijaID`,`KlijentID`,`PolazakID`,`Date`) value
 (5,10,72,'2020-02-01'),
 (6,10,170,'2021-11-05'),
 (7,14,170,'2021-11-05'),
-(8,15,72,'2021-05-30');
+(8,15,72,'2021-05-30'),
+(11,10,171,'2021-11-08');
 
 /*Table structure for table `stanica` */
 
@@ -346,12 +348,12 @@ DROP TABLE IF EXISTS `stanica`;
 
 CREATE TABLE `stanica` (
   `StanicaID` int(255) NOT NULL AUTO_INCREMENT,
-  `NazivStanice` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `MestoID` int(255) DEFAULT NULL,
+  `NazivStanice` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `MestoID` int(255) NOT NULL,
   PRIMARY KEY (`StanicaID`),
   UNIQUE KEY `UNIQUE` (`NazivStanice`,`MestoID`),
   KEY `FK_MestoID` (`MestoID`),
-  CONSTRAINT `FK_MestoID` FOREIGN KEY (`MestoID`) REFERENCES `mesto` (`MestoID`) ON UPDATE CASCADE
+  CONSTRAINT `stanica_ibfk_1` FOREIGN KEY (`MestoID`) REFERENCES `mesto` (`MestoID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `stanica` */
@@ -387,7 +389,7 @@ DROP TABLE IF EXISTS `tiplinije`;
 
 CREATE TABLE `tiplinije` (
   `TipLinijeID` int(255) NOT NULL AUTO_INCREMENT,
-  `Naziv` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Naziv` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`TipLinijeID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -404,8 +406,8 @@ DROP TABLE IF EXISTS `voz`;
 
 CREATE TABLE `voz` (
   `VozID` int(255) NOT NULL AUTO_INCREMENT,
-  `Naziv` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `BrojMesta` int(255) DEFAULT NULL,
+  `Naziv` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `BrojMesta` int(255) NOT NULL,
   PRIMARY KEY (`VozID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

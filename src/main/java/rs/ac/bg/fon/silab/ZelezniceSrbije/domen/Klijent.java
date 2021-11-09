@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -23,20 +22,28 @@ public class Klijent {
     private int klijentID;
 
     @Email(message = "Email adresa mora biti validna!")
-    @NotBlank(message = "Email is mandatory")
+    @NotBlank(message = "Email je obavezno polje!")
+    @Size(min = 2, message = "Email mora imati minimum 7 karaktera!")
     @Column(name = "email")
     private String email;
 
-    @Column(name = "korisnickoime")
+    @NotBlank(message = "Email je obavezno polje!")
     @Size(min = 2, message = "Korisnicko ime mora imati barem 2 karaktera!")
+    @Column(name = "korisnickoime")
     private String korisnickoIme;
 
+    @Size(min = 2, message = "Ime mora imati barem 2 karaktera!")
+    @NotBlank(message = "Ime je obavezno polje!")
     @Column(name = "ime")
     private String ime;
 
+    @Size(min = 2, message = "Prezime mora imati barem 2 karaktera!")
+    @NotBlank(message = "Prezime je obavezno polje!")
     @Column(name = "prezime")
     private String prezime;
 
+    @Size(min = 3, message = "Lozinka mora imati barem 3 karaktera!")
+    @NotBlank(message = "Lozinka je obavezno polje!")
     @Column(name = "lozinka")
     private String lozinka;
 

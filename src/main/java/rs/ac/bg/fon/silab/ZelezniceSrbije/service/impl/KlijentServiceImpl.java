@@ -28,7 +28,11 @@ public class KlijentServiceImpl implements KlijentService{
     @Override
     public Klijent getByEmailAndPassword(String email, String password) {
         System.out.println("get " + email + " " + password);
-        return klijentRepository.getByEmailAndPassword(email, password);
+        Klijent klijent = klijentRepository.getByEmailAndPassword(email, password);
+        if(klijent==null){
+            throw new RecordNotFoundException("Korisnik nije pronađen!");
+        }
+        return klijent;
     }
 
     @Override
@@ -36,7 +40,7 @@ public class KlijentServiceImpl implements KlijentService{
         System.out.println("get " + id);
         Klijent klijent=klijentRepository.getKlijentById(id);
         if(klijent==null){
-            throw new RecordNotFoundException("Test");
+            throw new RecordNotFoundException("Korisnik nije pronađen!");
         }
        return klijent;
     }

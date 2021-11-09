@@ -32,20 +32,21 @@ public class KlijentController {
     }
 
     @PostMapping("/get")
-    public ResponseEntity<Klijent> getKlijentByEmailAndPassword(@Valid @RequestBody Klijent klijent) {
+    public ResponseEntity<Klijent> getKlijentByEmailAndPassword( @RequestBody Klijent klijent) {
         Klijent k = this.klijentService.getByEmailAndPassword(klijent.getEmail(), klijent.getLozinka());
-        return new ResponseEntity<Klijent>(k, HttpStatus.OK);
+        return new ResponseEntity<>(k, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public Klijent getKlijentById(@PathVariable int id) {
-        return this.klijentService.getKlijentById(id);
+    @PostMapping("/getbyid")
+    public ResponseEntity<Klijent> getKlijentById(@RequestBody Klijent klijent) {
+        Klijent k = this.klijentService.getKlijentById(klijent.getKlijentID());
+        return new ResponseEntity<>(k, HttpStatus.OK);
     }
 
     @PostMapping("/add")
     public ResponseEntity<Klijent> addNewKlijent(@Valid @RequestBody Klijent klijent, BindingResult errors) {
         Klijent k = this.klijentService.addNewKlijent(klijent);
-        return new ResponseEntity<Klijent>(k, HttpStatus.OK);
+        return new ResponseEntity<>(k, HttpStatus.OK);
     }
 
     @PostMapping("/getbyemail")
@@ -53,8 +54,8 @@ public class KlijentController {
         String email = klijentService.getKlijentByEmail(klijent.getEmail());
         return new Klijent(-1, "", email, "", "", "");
     }
-    
-     @PutMapping("/update")
+
+    @PutMapping("/update")
     public int update(@RequestBody Klijent klijent) {
         return this.klijentService.update(klijent);
     }

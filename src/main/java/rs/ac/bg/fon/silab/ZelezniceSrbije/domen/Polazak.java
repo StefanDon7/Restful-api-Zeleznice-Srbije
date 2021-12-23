@@ -28,6 +28,7 @@ public class Polazak  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int polazakID;
 
+    
     @Column(name = "naziv")
     private String naziv;
     

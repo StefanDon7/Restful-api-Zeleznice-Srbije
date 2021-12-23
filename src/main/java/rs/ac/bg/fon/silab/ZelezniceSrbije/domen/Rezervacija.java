@@ -11,7 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "rezervacija")
@@ -50,7 +51,6 @@ public class Rezervacija {
     public void setRezervacijaID(int rezervacijaID) {
         this.rezervacijaID = rezervacijaID;
     }
-    
 
     public Klijent getKlijent() {
         return klijent;
@@ -82,7 +82,5 @@ public class Rezervacija {
     public String toString() {
         return "Rezervacija{" + "rezervacijaID=" + rezervacijaID + ", klijent=" + klijent + ", polazak=" + polazak + ", date=" + date + '}';
     }
-
-    
 
 }

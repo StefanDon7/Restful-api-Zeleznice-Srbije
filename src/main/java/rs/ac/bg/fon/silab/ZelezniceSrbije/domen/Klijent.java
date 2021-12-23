@@ -1,5 +1,6 @@
 package rs.ac.bg.fon.silab.ZelezniceSrbije.domen;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,12 +10,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "klijent")
-@Entity
-@Table(name = "klijent")
-public class Klijent {
+    @Entity
+    @Table(name = "klijent")
+    public class Klijent implements Serializable {
 
     @Id
     @Column(name = "klijentid")
@@ -23,27 +22,27 @@ public class Klijent {
 
     @Email(message = "Email adresa mora biti validna!")
     @NotBlank(message = "Email je obavezno polje!")
-    @Size(min = 2, message = "Email mora imati minimum 7 karaktera!")
+    @Size(min = 8, message = "Email mora imati najmanje 8 karaktera!")
     @Column(name = "email")
     private String email;
 
-    @NotBlank(message = "Email je obavezno polje!")
-    @Size(min = 2, message = "Korisnicko ime mora imati barem 2 karaktera!")
+    @NotBlank(message = "Korisničko ime je obavezno polje!")
+    @Size(min = 2, message = "Korisničko ime mora imati najmanje 2 karaktera!")
     @Column(name = "korisnickoime")
     private String korisnickoIme;
 
-    @Size(min = 2, message = "Ime mora imati barem 2 karaktera!")
     @NotBlank(message = "Ime je obavezno polje!")
+    @Size(min = 2, message = "Ime mora imati najmanje 2 karaktera!")
     @Column(name = "ime")
     private String ime;
 
-    @Size(min = 2, message = "Prezime mora imati barem 2 karaktera!")
     @NotBlank(message = "Prezime je obavezno polje!")
+    @Size(min = 2, message = "Prezime mora imati najmanje 2 karaktera!")
     @Column(name = "prezime")
     private String prezime;
 
-    @Size(min = 3, message = "Lozinka mora imati barem 3 karaktera!")
     @NotBlank(message = "Lozinka je obavezno polje!")
+    @Size(min = 3, message = "Lozinka mora imati najmanje 3 karaktera!")
     @Column(name = "lozinka")
     private String lozinka;
 

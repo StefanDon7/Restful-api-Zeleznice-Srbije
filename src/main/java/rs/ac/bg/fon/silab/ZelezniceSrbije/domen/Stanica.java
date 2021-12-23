@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "stanica")
@@ -17,6 +19,8 @@ public class Stanica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int stanicaID;
     
+    @NotBlank(message = "Naziv stanice je obavezno polje!")
+    @Size(min = 2, message = "Naziv stanice mora imati najmanje 2 karaktera!")
     @Column(name="nazivstanice")
     private String naziv;
     

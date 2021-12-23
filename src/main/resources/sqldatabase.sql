@@ -29,7 +29,7 @@ CREATE TABLE `klijent` (
   `Lozinka` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`KlijentID`),
   UNIQUE KEY `UNIQUE` (`Email`)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `klijent` */
 
@@ -37,9 +37,12 @@ insert  into `klijent`(`KlijentID`,`Email`,`KorisnickoIme`,`Ime`,`Prezime`,`Lozi
 (1,'pera@gmail.com','Pera','Pera','Peric','123'),
 (2,'mika@gmail.com','Mika','Mika','Mikic','123'),
 (3,'srba@gmail.com','Srba','Srba','Srbic','123'),
-(10,'s.lezaic95@gmail.com','Stefan123','Stefan','Lezaic','123'),
+(10,'s.lezaic95@gmail.com','Stefan123','Stefan','Ležaić','123'),
 (14,'zika@gmail.com','Zika','Zika','Zikic','123'),
-(15,'laza@gmail.com','Laza','Laza','Lazic','123');
+(15,'laza@gmail.com','Laza','Laza','Lazic','123'),
+(54,'mikas@gmail.com','korisnickoIme','Stefan','sags','123'),
+(81,'zikazikic@gmail.com','zikazikic','zika','zikic','123'),
+(82,'peraperic@gmail.com','Perica','Pera','Peric','123');
 
 /*Table structure for table `linija` */
 
@@ -61,7 +64,7 @@ CREATE TABLE `linija` (
   CONSTRAINT `FK_krajnja` FOREIGN KEY (`StanicaIDKrajnja`) REFERENCES `stanica` (`StanicaID`) ON UPDATE CASCADE,
   CONSTRAINT `FK_pocetna` FOREIGN KEY (`StanicaIDPolazna`) REFERENCES `stanica` (`StanicaID`) ON UPDATE CASCADE,
   CONSTRAINT `FK_tip` FOREIGN KEY (`TipLinijeID`) REFERENCES `tiplinije` (`TipLinijeID`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `linija` */
 
@@ -86,7 +89,7 @@ CREATE TABLE `medjustanica` (
   KEY `StanicaID` (`StanicaID`),
   CONSTRAINT `medjustanica_ibfk_1` FOREIGN KEY (`StanicaID`) REFERENCES `stanica` (`StanicaID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `medjustanica_ibfk_2` FOREIGN KEY (`LinijaID`) REFERENCES `linija` (`LinijaID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `medjustanica` */
 
@@ -137,60 +140,35 @@ CREATE TABLE `mesto` (
 /*Data for the table `mesto` */
 
 insert  into `mesto`(`MestoID`,`NazivMesta`) values 
-(1,'Subotica'),
-(2,'Nis'),
-(3,'Novi Sad'),
-(4,'Indjija'),
-(5,'Sremski Karlovci'),
-(6,'Beograd'),
-(8,'Vrbas'),
-(9,'Smederevska palanka'),
-(10,'Batajnica'),
-(11,'Jagodina'),
-(12,'Cuprija'),
-(13,'Paracin'),
-(14,'Stalac'),
-(15,'Aleksinac'),
-(16,'Bela Palanka'),
-(17,'Pirot'),
-(18,'Dimitrovgrad'),
-(19,'Kursumlija'),
-(20,'Prokuplje'),
-(21,'Vrbnica'),
-(22,'Prijepolje'),
-(23,'Priboj'),
-(24,'Uzice'),
-(25,'Pozega'),
-(26,'Cacak'),
-(27,'Kraljevo'),
-(28,'Kragujevac'),
-(29,'Batocina'),
-(30,'Lapovo'),
-(31,'Raska'),
-(32,'Lajkovac'),
-(33,'Valjevo'),
-(34,'Mladenovac'),
-(36,'Pozarevac'),
-(37,'Smederevo'),
-(38,'Majdanpek'),
-(39,'Bor'),
-(40,'Zajecar'),
-(41,'Negotin'),
-(42,'Prahovo pristaniste'),
-(43,'Knjazevac'),
-(44,'Svrljig'),
-(45,'Sid'),
-(46,'Ruma'),
-(47,'Sremska Mitrovica'),
-(48,'Stara Pazova'),
-(49,'Kikinda'),
-(50,'Novi Becej'),
-(51,'Zrenjanin'),
-(52,'Pancevo'),
-(53,'Ovca'),
-(54,'Vrsac'),
-(55,'Mala Krsna'),
-(56,'Backa Topola');
+(1,'Borski okrug'),
+(2,'Braničevski okrug'),
+(3,'Beograd'),
+(4,'Zaječarski okrug'),
+(5,'Zlatiborski okrug'),
+(6,'Jablanički okrug'),
+(8,'Kolubarski okrug'),
+(9,'Mačvanski okrug'),
+(10,'Moravički okrug'),
+(11,'Nišavski okrug'),
+(12,'Pirotski okrug'),
+(13,'Podunavski okrug'),
+(14,'Pomoravski okrug'),
+(15,'Pčinjski okrug'),
+(16,'Rasinski okrug'),
+(17,'Raški okrug'),
+(18,'Toplički okrug'),
+(19,'Šumadijski okrug'),
+(20,'Južnobanatski okrug'),
+(21,'Južnobački okrug'),
+(22,'Severnobanatski okru'),
+(23,'Severnobački okrug'),
+(24,'Srednjobanatski okru'),
+(25,'Sremski okrug'),
+(26,'Zapadnobački okrug'),
+(29,'Kosovski okrug'),
+(30,'Kosovskomitrovački o'),
+(31,'Pećki okrug\r\n'),
+(32,'Prizrenski okrug\r\n');
 
 /*Table structure for table `polazak` */
 
@@ -209,7 +187,7 @@ CREATE TABLE `polazak` (
   KEY `FK_VozID` (`VozID`),
   CONSTRAINT `FK_LinijaID` FOREIGN KEY (`LinijaID`) REFERENCES `linija` (`LinijaID`) ON UPDATE CASCADE,
   CONSTRAINT `FK_VozID` FOREIGN KEY (`VozID`) REFERENCES `voz` (`VozID`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=205 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `polazak` */
 
@@ -247,7 +225,7 @@ insert  into `polazak`(`PolazakID`,`Naziv`,`DatumPolaska`,`DatumDolaska`,`Linija
 (104,'NOVI SAD - SUBOTICA (Brzi voz) [03.02.2020 23:59 -> 04.02.2020 03:05]','2020-02-03 23:59:00','2020-02-04 03:05:00',5,1,'/'),
 (105,'SUBOTICA - NOVI SAD (Brzi voz) [04.02.2020 20:23 -> 04.02.2020 23:29]','2020-02-04 20:23:00','2020-02-04 23:29:00',3,1,'/'),
 (106,'NOVI SAD - SUBOTICA (Brzi voz) [04.02.2020 23:59 -> 05.02.2020 03:05]','2020-02-04 23:59:00','2020-02-05 03:05:00',5,1,'/'),
-(107,'SUBOTICA - NOVI SAD (Brzi voz) [05.02.2020 20:23 -> 05.02.2020 23:29]','2020-02-05 20:23:00','2020-02-05 23:29:00',3,1,'KASNI 2min'),
+(107,'SUBOTICA - NOVI SAD (Brzi voz) [05.02.2020 20:23 -> 05.02.2020 23:29]','2020-02-05 20:23:00','2020-02-05 23:29:00',3,1,'kasni 3 minuta.'),
 (108,'NOVI SAD - SUBOTICA (Brzi voz) [05.02.2020 23:59 -> 06.02.2020 03:05]','2020-02-05 23:59:00','2020-02-06 03:05:00',5,1,'/'),
 (109,'SUBOTICA - NOVI SAD (Brzi voz) [06.02.2020 20:23 -> 06.02.2020 23:29]','2020-02-06 20:23:00','2020-02-06 23:29:00',3,1,'/'),
 (110,'NOVI SAD - SUBOTICA (Brzi voz) [06.02.2020 23:59 -> 07.02.2020 03:05]','2020-02-06 23:59:00','2020-02-07 03:05:00',5,1,'/'),
@@ -255,7 +233,7 @@ insert  into `polazak`(`PolazakID`,`Naziv`,`DatumPolaska`,`DatumDolaska`,`Linija
 (112,'NOVI SAD - SUBOTICA (Brzi voz) [07.02.2020 23:59 -> 08.02.2020 03:05]','2020-02-07 23:59:00','2020-02-08 03:05:00',5,1,'/'),
 (113,'SUBOTICA - NOVI SAD (Brzi voz) [08.02.2020 20:23 -> 08.02.2020 23:29]','2020-02-08 20:23:00','2020-02-08 23:29:00',3,1,'/'),
 (114,'NOVI SAD - SUBOTICA (Brzi voz) [08.02.2020 23:59 -> 09.02.2020 03:05]','2020-02-08 23:59:00','2020-02-09 03:05:00',5,1,'/'),
-(115,'SUBOTICA - NOVI SAD (Brzi voz) [09.02.2020 20:23 -> 09.02.2020 23:29]','2020-02-09 20:23:00','2020-02-09 23:29:00',3,1,'OTKAZAN'),
+(115,'SUBOTICA - NOVI SAD (Brzi voz) [09.02.2020 20:23 -> 09.02.2020 23:29]','2020-02-09 20:23:00','2020-02-09 23:29:00',3,1,'OTKAZAN.'),
 (116,'NOVI SAD - SUBOTICA (Brzi voz) [09.02.2020 23:59 -> 10.02.2020 03:05]','2020-02-09 23:59:00','2020-02-10 03:05:00',5,1,'/'),
 (117,'SUBOTICA - NOVI SAD (Brzi voz) [10.02.2020 20:23 -> 10.02.2020 23:29]','2020-02-10 20:23:00','2020-02-10 23:29:00',3,1,'/'),
 (118,'NOVI SAD - SUBOTICA (Brzi voz) [10.02.2020 23:59 -> 11.02.2020 03:05]','2020-02-10 23:59:00','2020-02-11 03:05:00',5,1,'/'),
@@ -309,8 +287,41 @@ insert  into `polazak`(`PolazakID`,`Naziv`,`DatumPolaska`,`DatumDolaska`,`Linija
 (167,'NOVI SAD - SUBOTICA (Brzi voz) [14.02.2020 04:00 -> 14.02.2020 07:06]','2020-02-14 04:00:00','2020-02-14 07:06:00',5,1,'/'),
 (168,'NOVI SAD - SUBOTICA (Brzi voz) [15.02.2020 04:00 -> 15.02.2020 07:06]','2020-02-15 04:00:00','2020-02-15 07:06:00',5,1,'/'),
 (169,'NOVI SAD - SUBOTICA (Brzi voz) [16.02.2020 04:00 -> 16.02.2020 07:06]','2020-02-16 04:00:00','2020-02-16 07:06:00',5,1,'/'),
-(170,'NOVI SAD - SUBOTICA (Brzi voz) [23.04.2020 00:00 -> 23.04.2020 03:06]','2020-04-23 00:00:00','2020-04-23 03:06:00',5,5,'BLABLABLA'),
-(171,'SUBOTICAdsgagasdgsadgs - NOVI SAD (Brzi voz) [26.10.2021 00:00 - 26.10.2021 03:06]','2020-02-04 00:00:00','2020-02-04 00:00:00',3,1,'/');
+(170,'NOVI SAD - SUBOTICA (Brzi voz) [23.04.2020 00:00 -> 23.04.2020 03:06]','2020-04-23 00:00:00','2020-04-23 03:06:00',5,5,'/'),
+(171,'SUBOTICAdsgagasdgsadgs - NOVI SAD (Brzi voz) [26.10.2021 00:00 - 26.10.2021 03:06]','2020-02-04 00:00:00','2020-02-04 00:00:00',3,1,'/'),
+(172,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 00:00 - 11.11.2021 03:06]','2021-11-10 01:00:00','2021-11-10 04:06:00',3,5,'/'),
+(173,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 00:00 - 11.11.2021 03:06]','2021-11-11 01:00:00','2021-11-11 04:06:00',3,1,'/'),
+(174,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 00:00 - 11.11.2021 03:06]','2021-11-11 01:00:00','2021-11-11 04:06:00',3,1,'/'),
+(175,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 00:00 - 11.11.2021 03:06]','2021-11-11 01:00:00','2021-11-11 04:06:00',3,1,'/'),
+(176,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 00:00 - 11.11.2021 03:06]','2021-11-11 01:00:00','2021-11-11 04:06:00',3,1,'/'),
+(177,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 00:00 - 11.11.2021 03:06]','2021-11-11 01:00:00','2021-11-11 04:06:00',3,1,'/'),
+(178,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 00:00 - 11.11.2021 03:06]','2021-11-11 01:00:00','2021-11-11 04:06:00',3,1,'/'),
+(179,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 01:00 - 11.11.2021 04:06]','2021-11-11 02:00:00','2021-11-11 05:06:00',3,1,'/'),
+(180,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 02:00 - 11.11.2021 05:06]','2021-11-11 03:00:00','2021-11-11 06:06:00',3,1,'/'),
+(181,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 02:00 - 11.11.2021 05:06]','2021-11-11 03:00:00','2021-11-11 06:06:00',3,1,'/'),
+(182,'NOVI SAD - SUBOTICA (Brzi voz) [11.11.2021 05:36 - 11.11.2021 08:12]','2021-11-11 06:36:00','2021-11-11 09:12:00',5,1,'/'),
+(183,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 03:00 - 11.11.2021 06:06]','2021-11-11 04:00:00','2021-11-11 07:06:00',3,1,'/'),
+(184,'NOVI SAD - SUBOTICA (Brzi voz) [11.11.2021 06:36 - 11.11.2021 09:12]','2021-11-11 07:36:00','2021-11-11 10:12:00',5,1,'/'),
+(185,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 04:00 - 11.11.2021 07:06]','2021-11-11 05:00:00','2021-11-11 08:06:00',3,1,'/'),
+(186,'NOVI SAD - SUBOTICA (Brzi voz) [11.11.2021 07:36 - 11.11.2021 10:12]','2021-11-11 08:36:00','2021-11-11 11:12:00',5,1,'/'),
+(187,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 05:00 - 11.11.2021 08:06]','2021-11-11 06:00:00','2021-11-11 09:06:00',3,1,'/'),
+(188,'NOVI SAD - SUBOTICA (Brzi voz) [11.11.2021 08:36 - 11.11.2021 11:12]','2021-11-11 09:36:00','2021-11-11 12:12:00',5,1,'/'),
+(189,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 06:00 - 11.11.2021 09:06]','2021-11-11 07:00:00','2021-11-11 10:06:00',3,1,'kasni 4 minuta.'),
+(190,'NOVI SAD - SUBOTICA (Brzi voz) [11.11.2021 09:36 - 11.11.2021 12:12]','2021-11-11 10:36:00','2021-11-11 13:12:00',5,1,'/'),
+(191,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 07:00 - 11.11.2021 10:06]','2021-11-11 08:00:00','2021-11-11 11:06:00',3,1,'/'),
+(192,'NOVI SAD - SUBOTICA (Brzi voz) [11.11.2021 10:36 - 11.11.2021 13:12]','2021-11-11 11:36:00','2021-11-11 14:12:00',5,1,'/'),
+(193,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 08:00 - 11.11.2021 11:06]','2021-11-11 09:00:00','2021-11-11 12:06:00',3,1,'/'),
+(194,'NOVI SAD - SUBOTICA (Brzi voz) [11.11.2021 11:36 - 11.11.2021 14:12]','2021-11-11 12:36:00','2021-11-11 15:12:00',5,1,'/'),
+(195,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 09:00 - 11.11.2021 12:06]','2021-11-11 10:00:00','2021-11-11 13:06:00',3,1,'OTKAZAN.'),
+(196,'NOVI SAD - SUBOTICA (Brzi voz) [11.11.2021 12:36 - 11.11.2021 15:12]','2021-11-11 13:36:00','2021-11-11 16:12:00',5,1,'/'),
+(197,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 10:00 - 11.11.2021 13:06]','2021-11-11 11:00:00','2021-11-11 14:06:00',3,1,'/'),
+(198,'NOVI SAD - SUBOTICA (Brzi voz) [11.11.2021 13:36 - 11.11.2021 16:12]','2021-11-11 14:36:00','2021-11-11 17:12:00',5,1,'/'),
+(199,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 10:00 - 11.11.2021 13:06]','2021-11-11 11:00:00','2021-11-11 14:06:00',3,1,'/'),
+(200,'NOVI SAD - SUBOTICA (Brzi voz) [11.11.2021 13:36 - 11.11.2021 16:12]','2021-11-11 14:36:00','2021-11-11 17:12:00',5,1,'kasni 2 minuta.'),
+(201,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 10:00 - 11.11.2021 13:06]','2021-11-11 11:00:00','2021-11-11 14:06:00',3,1,'/'),
+(202,'NOVI SAD - SUBOTICA (Brzi voz) [11.11.2021 13:36 - 11.11.2021 16:12]','2021-11-11 14:36:00','2021-11-11 17:12:00',5,1,'/'),
+(203,'SUBOTICA - NOVI SAD (Brzi voz) [11.11.2021 10:00 - 11.11.2021 13:06]','2021-11-11 11:00:00','2021-11-11 14:06:00',3,1,'/'),
+(204,'NOVI SAD - SUBOTICA (Brzi voz) [11.11.2021 13:36 - 11.11.2021 16:12]','2021-11-11 14:36:00','2021-11-11 17:12:00',5,1,'/');
 
 /*Table structure for table `rezervacija` */
 
@@ -327,7 +338,7 @@ CREATE TABLE `rezervacija` (
   KEY `KlijentID` (`KlijentID`),
   CONSTRAINT `rezervacija_ibfk_1` FOREIGN KEY (`KlijentID`) REFERENCES `klijent` (`KlijentID`),
   CONSTRAINT `rezervacija_ibfk_2` FOREIGN KEY (`PolazakID`) REFERENCES `polazak` (`PolazakID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `rezervacija` */
 
@@ -340,7 +351,28 @@ insert  into `rezervacija`(`RezervacijaID`,`KlijentID`,`PolazakID`,`Date`) value
 (6,10,170,'2021-11-05'),
 (7,14,170,'2021-11-05'),
 (8,15,72,'2021-05-30'),
-(11,10,171,'2021-11-08');
+(11,10,171,'2021-11-08'),
+(13,10,172,'2021-11-10'),
+(14,1,172,'2021-11-10'),
+(21,2,172,'2021-11-10'),
+(24,81,172,'2021-11-10'),
+(26,10,182,'2021-11-10'),
+(27,10,184,'2021-11-10'),
+(28,10,186,'2021-11-10'),
+(29,10,188,'2021-11-10'),
+(30,10,190,'2021-11-10'),
+(31,10,192,'2021-11-10'),
+(32,10,194,'2021-11-10'),
+(33,10,196,'2021-11-10'),
+(34,10,198,'2021-11-10'),
+(35,10,200,'2021-11-10'),
+(36,10,202,'2021-11-10'),
+(37,10,204,'2021-11-10'),
+(38,10,173,'2021-11-10'),
+(39,10,174,'2021-11-10'),
+(40,10,176,'2021-11-10'),
+(41,10,180,'2021-11-10'),
+(42,10,183,'2021-11-10');
 
 /*Table structure for table `stanica` */
 
@@ -354,34 +386,31 @@ CREATE TABLE `stanica` (
   UNIQUE KEY `UNIQUE` (`NazivStanice`,`MestoID`),
   KEY `FK_MestoID` (`MestoID`),
   CONSTRAINT `stanica_ibfk_1` FOREIGN KEY (`MestoID`) REFERENCES `mesto` (`MestoID`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `stanica` */
 
 insert  into `stanica`(`StanicaID`,`NazivStanice`,`MestoID`) values 
-(19,'ALEKSANDROVO PREDGRADE',3),
-(11,'BACKA TOPOLA',56),
-(22,'BEOGRAD CENTAR(PROKOP)',6),
-(21,'BEOGRAD DUNAV',6),
-(1,'BEOGRAD GLAVNA',6),
-(5,'INDJIJA',4),
-(6,'INDJIJA PUSTARA',4),
-(18,'KISAC',3),
-(13,'LOVCENAC',55),
-(32,'MALA VAROSICA',17),
-(12,'MALI IDJOS ',56),
-(3,'NIS',2),
-(4,'NISKA BANJA',2),
-(2,'NOVI SAD',3),
-(33,'SDAGASDGAD',1),
-(7,'SREMSKI KARLOVCI',5),
-(17,'STEPANOVICEVO',3),
-(9,'SUBOTICA',1),
-(20,'VERUSIC',1),
-(14,'VRBAS',8),
-(34,'ZABLJAK',29),
-(10,'ZEDNIK',1),
-(15,'ZMAJEVO',8);
+(19,'ALEKSANDROVO PREDGRAĐE',23),
+(11,'BAČKA TOPOLA',23),
+(22,'BEOGRAD CENTAR(PROKOP)',3),
+(21,'BEOGRAD DUNAV',3),
+(1,'BEOGRAD GLAVNA',3),
+(5,'INĐIJA',25),
+(6,'INĐIJA PUSTARA',25),
+(18,'KISAC',21),
+(13,'LOVĆENAC',21),
+(12,'MALI IĐOŠ ',21),
+(3,'NIŠ',11),
+(4,'NIŠKA BANJA',11),
+(2,'NOVI SAD',21),
+(7,'SREMSKI KARLOVCI',25),
+(17,'STEPANOVIĆEVO',21),
+(9,'SUBOTICA',23),
+(20,'VERUŠIĆ',23),
+(14,'VRBAS',21),
+(10,'ŽEDNIK',23),
+(15,'ZMAJEVO',21);
 
 /*Table structure for table `tiplinije` */
 

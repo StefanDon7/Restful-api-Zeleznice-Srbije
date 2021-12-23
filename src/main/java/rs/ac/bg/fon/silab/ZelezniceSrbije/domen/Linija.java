@@ -1,8 +1,5 @@
 package rs.ac.bg.fon.silab.ZelezniceSrbije.domen;
 
-
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,33 +8,42 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "linija")
-public class Linija  {
+public class Linija {
 
     @Id
     @Column(name = "linijaid")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int linijaID;
-    
+
+    @NotBlank(message = "Naziv linije je obavezno polje!")
+    @Size(min = 2, message = "Naziv linije mora imati najmanje 2 karaktera!")
     @Column(name = "nazivlinije")
     private String nazivLinije;
-    
+
+    @NotBlank(message = "Polje minutaža je obavezno polje!")
+    @Min(value = 1, message = "Polje minutaža mora biti pozitivan broj!")
     @Column(name = "minutaza")
     private int minutaza;
-    
+
+    @NotBlank(message = "Polje kilometraža je  obavezno polje!")
+    @Min(value = 1, message = "Polje kilometraža mora biti pozitivan broj!")
     @Column(name = "kilometraza")
     private double kilometraza;
-    
+
     @ManyToOne
     @JoinColumn(name = "stanicaidpolazna")
     private Stanica stanicaPocetna;
-    
+
     @ManyToOne
     @JoinColumn(name = "stanicaidkrajnja")
     private Stanica stanicaKrajnja;
-    
+
     @ManyToOne
     @JoinColumn(name = "tiplinijeid")
     private TipLinije tipLinije;
@@ -48,7 +54,6 @@ public class Linija  {
 //            joinColumns = @JoinColumn(name = "linijaid"),
 //            inverseJoinColumns = @JoinColumn(name = "stanicaid"))
 //    private List<Stanica> medjustanice;
-
     public Linija() {
     }
 
@@ -119,12 +124,9 @@ public class Linija  {
 //    public void setListaMedjustanica(List<Stanica> listaMedjustanica) {
 //        this.medjustanice = listaMedjustanica;
 //    }
-
     @Override
     public String toString() {
         return "Linija{" + "linijaID=" + linijaID + ", nazivLinije=" + nazivLinije + ", minutaza=" + minutaza + ", kilometraza=" + kilometraza + ", stanicaPocetna=" + stanicaPocetna + ", stanicaKrajnja=" + stanicaKrajnja + ", tipLinije=" + tipLinije + '}';
     }
 
-    
-    
 }

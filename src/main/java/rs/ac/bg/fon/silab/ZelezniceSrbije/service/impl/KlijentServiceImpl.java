@@ -1,8 +1,6 @@
 package rs.ac.bg.fon.silab.ZelezniceSrbije.service.impl;
 
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +12,7 @@ import rs.ac.bg.fon.silab.ZelezniceSrbije.service.KlijentService;
 
 @Service
 @Transactional
-public class KlijentServiceImpl implements KlijentService{
+public class KlijentServiceImpl implements KlijentService {
 
     @Autowired
     private KlijentRepository klijentRepository;
@@ -29,7 +27,7 @@ public class KlijentServiceImpl implements KlijentService{
     public Klijent getByEmailAndPassword(String email, String password) {
         System.out.println("get " + email + " " + password);
         Klijent klijent = klijentRepository.getByEmailAndPassword(email, password);
-        if(klijent==null){
+        if (klijent == null) {
             throw new RecordNotFoundException("Korisnik nije pronađen!");
         }
         return klijent;
@@ -38,17 +36,17 @@ public class KlijentServiceImpl implements KlijentService{
     @Override
     public Klijent getKlijentById(int id) {
         System.out.println("get " + id);
-        Klijent klijent=klijentRepository.getKlijentById(id);
-        if(klijent==null){
+        Klijent klijent = klijentRepository.getKlijentById(id);
+        if (klijent == null) {
             throw new RecordNotFoundException("Korisnik nije pronađen!");
         }
-       return klijent;
+        return klijent;
     }
 
     @Override
     public Klijent addNewKlijent(Klijent klijent) {
         System.out.println("add new klijent: " + klijent);
-        return klijentRepository.saveAndFlush(klijent);
+        return klijentRepository.save(klijent);
     }
 
     @Override
@@ -60,7 +58,7 @@ public class KlijentServiceImpl implements KlijentService{
     @Override
     public int update(Klijent klijent) {
         System.out.println("Update klijent username i lozinka");
-        return klijentRepository.update(klijent.getKorisnickoIme(),klijent.getLozinka(), klijent.getKlijentID());
+        return klijentRepository.update(klijent.getKorisnickoIme(), klijent.getLozinka(), klijent.getKlijentID());
     }
 
     @Override

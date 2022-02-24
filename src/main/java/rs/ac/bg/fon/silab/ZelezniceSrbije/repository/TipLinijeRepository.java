@@ -12,6 +12,7 @@ import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.TipLinije;
 public interface TipLinijeRepository extends JpaRepository<TipLinije, Integer>{
 
 	@Query(value = "select * from tipLinije", nativeQuery = true)
+        @Override
 	List<TipLinije> findAll();
 	
 }

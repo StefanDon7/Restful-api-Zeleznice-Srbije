@@ -11,6 +11,7 @@ import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Voz;
 public interface VozRepository extends JpaRepository<Voz, Integer> {
 
 	@Query(value = "select * from voz", nativeQuery = true)
+        @Override
 	List<Voz> findAll();
 	
 }

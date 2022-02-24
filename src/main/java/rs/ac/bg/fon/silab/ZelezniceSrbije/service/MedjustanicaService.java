@@ -6,12 +6,16 @@
 package rs.ac.bg.fon.silab.ZelezniceSrbije.service;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Medjustanica;
 
 /**
  *
  * @author Stefan
  */
+@Service
+@Transactional
 public interface MedjustanicaService {
 
      List<Medjustanica> getAll();

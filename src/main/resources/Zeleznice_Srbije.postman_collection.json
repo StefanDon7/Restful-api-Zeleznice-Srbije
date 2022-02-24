@@ -1,0 +1,920 @@
+{
+	"info": {
+		"_postman_id": "eeb07606-6aef-45d5-bd0a-fae32a5d9761",
+		"name": "Zeleznice_Srbije",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "(Klijent) get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/klijent/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"klijent",
+						"all"
+					]
+				},
+				"description": "Vraca sve klijente"
+			},
+			"response": []
+		},
+		{
+			"name": "(Klijent)  get by email and password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"mika@gmail.com\",\r\n    \"lozinka\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/klijent/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"klijent",
+						"get"
+					]
+				},
+				"description": "Vraca klijenta kad posaljemo POST zahteva sa email i lozinkom"
+			},
+			"response": []
+		},
+		{
+			"name": "(Klijent) get by ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"klijentID\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/klijent/getbyid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"klijent",
+						"getbyid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Klijent) add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n    \"korisnickoIme\": \"Stefan\",\r\n    \"email\":\"gsdasgd@gmail.com\",\r\n    \"ime\": \"Stefan\",\r\n    \"prezime\": \"Stefan\",\r\n    \"lozinka\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/klijent/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"klijent",
+						"add"
+					]
+				},
+				"description": "Dodaje novog klijenta"
+			},
+			"response": []
+		},
+		{
+			"name": "(Klijent) update korisnicko ime i lozinka",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"klijentID\": \"10\",\r\n    \"korisnickoIme\": \"stefanDON7\",\r\n    \"lozinka\": \"123123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/klijent/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"klijent",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Klijent) update korisnicko ime",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"klijentID\": \"10\",\r\n    \"korisnickoIme\": \"stefanDON7\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/klijent/updateusername",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"klijent",
+						"updateusername"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Klijent) update lozinka",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"klijentID\": \"10\",\r\n    \"lozinka\": \"123brkovi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/klijent/updatepassword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"klijent",
+						"updatepassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Mesto) get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/mesto/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"mesto",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Stanica) get all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nazivStanice\": \"ALEKSANDROVO 324\",\r\n    \"mesto\": {\r\n        \"mestoID\": 6,\r\n        \"nazivMesta\": \"Beograd\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/stanica/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"stanica",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Stanica) add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nazivStanice\": \"ALEKSANDROVO 324\",\r\n    \"mesto\": {\r\n        \"mestoID\": 6,\r\n        \"nazivMesta\": \"Beograd\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/stanica/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"stanica",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Medjustanica) get all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/medjustanica/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"medjustanica",
+						"all"
+					]
+				},
+				"description": "Vraca sve stanice"
+			},
+			"response": []
+		},
+		{
+			"name": "(Medjustanica) get all by linijaid",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/medjustanica/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"medjustanica",
+						"3"
+					]
+				},
+				"description": "Vraca sve stanice"
+			},
+			"response": []
+		},
+		{
+			"name": "(Medjustanica) add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"linija\": {\r\n            \"linijaID\": 3\r\n        },\r\n         \"stanica\": {\r\n            \"stanicaID\": 19\r\n        },\r\n        \"redniBroj\": 8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/medjustanica/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"medjustanica",
+						"add"
+					]
+				},
+				"description": "Vraca sve stanice"
+			},
+			"response": []
+		},
+		{
+			"name": "(Medjustanica) delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"medjustanicaID\": 34\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/medjustanica/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"medjustanica",
+						"delete"
+					]
+				},
+				"description": "Vraca sve stanice"
+			},
+			"response": []
+		},
+		{
+			"name": "(Medjustanica) delete",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"key\": {\r\n            \"linijaID\": 3,\r\n            \"stanicaID\": 10\r\n        },\r\n        \"redniBroj\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/medjustanica/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"medjustanica",
+						"update"
+					]
+				},
+				"description": "Vraca sve stanice"
+			},
+			"response": []
+		},
+		{
+			"name": "(Linija) delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"linijaID\":246\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/linija/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"linija",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Linija) get all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/linija/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"linija",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Polazak) get number of reservations",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/polazak/reservation/170",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"polazak",
+						"reservation",
+						"170"
+					]
+				},
+				"description": "Vraca sve polaske za tacan datum\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "(Polazak) get all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"stefan@gmail.com\",\r\n    \"korisnickoIme\": \"Stefan\",\r\n    \"ime\": \"Stefan\",\r\n    \"prezime\": \"Stefan\",\r\n    \"lozinka\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/polazak/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"polazak",
+						"all"
+					]
+				},
+				"description": "Vraca sve polaske"
+			},
+			"response": []
+		},
+		{
+			"name": "(Polazak) get by stanica1,stanica2,datum",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/polazak/ZEDNIK/NOVI SAD/2020-02-04",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"polazak",
+						"ZEDNIK",
+						"NOVI SAD",
+						"2020-02-04"
+					]
+				},
+				"description": "Vraca sve polaske za tacan datum\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "(Polazak) get by datum",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/polazak/2020-02-04",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"polazak",
+						"2020-02-04"
+					]
+				},
+				"description": "Vraca sve polaske za tacan datum\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "(Polazak) add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"polazakID\": 227,\r\n    \"naziv\": \"SUBOTICA - NOVI SAD (Brzi voz) [04.02.2020 00:00 -> 04.02.2020 03:06]\",\r\n    \"datumPolaska\": \"2020-02-03T23:00:00.000+00:00\",\r\n    \"datumDolaska\": \"2020-02-04T02:06:00.000+00:00\",\r\n    \"linija\": {\r\n        \"linijaID\": 3,\r\n        \"nazivLinije\": \"SUBOTICA - NOVI SAD (Brzi voz)\",\r\n        \"minutaza\": 186,\r\n        \"kilometraza\": 108.0,\r\n        \"stanicaPocetna\": {\r\n            \"stanicaID\": 9,\r\n            \"naziv\": \"SUBOTICA\",\r\n            \"mesto\": {\r\n                \"mestoID\": 1,\r\n                \"nazivMesta\": \"Subotica\"\r\n            }\r\n        },\r\n        \"stanicaKrajnja\": {\r\n            \"stanicaID\": 2,\r\n            \"naziv\": \"NOVI SAD\",\r\n            \"mesto\": {\r\n                \"mestoID\": 3,\r\n                \"nazivMesta\": \"Novi Sad\"\r\n            }\r\n        },\r\n        \"tipLinije\": {\r\n            \"tipLinijeID\": 1,\r\n            \"naziv\": \"Brzi voz\"\r\n        }\r\n    },\r\n    \"voz\": {\r\n        \"vozID\": 1,\r\n        \"naziv\": \"Tip100\",\r\n        \"brojSedista\": 100\r\n    },\r\n    \"napomena\": \"/\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/polazak/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"polazak",
+						"add"
+					]
+				},
+				"description": "Vraca sve polaske"
+			},
+			"response": []
+		},
+		{
+			"name": "(Polazak) update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"polazakID\": 227,\r\n    \"napomena\": \"BLABLABLA\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/polazak/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"polazak",
+						"update"
+					]
+				},
+				"description": "Vraca sve polaske"
+			},
+			"response": []
+		},
+		{
+			"name": "(Polazak) delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"polazakID\": 227   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/polazak/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"polazak",
+						"delete"
+					]
+				},
+				"description": "Vraca sve polaske"
+			},
+			"response": []
+		},
+		{
+			"name": "(Voz) get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/voz/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"voz",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Tip linije) get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/tipLinije/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"tipLinije",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Rezervacija) get by klijentid and polazakid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"klijent\": {\r\n            \"klijentID\": 10\r\n        },\r\n        \"polazak\": {\r\n            \"polazakID\": 170\r\n        }\r\n    }\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/rezervacija/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"rezervacija",
+						"get"
+					]
+				},
+				"description": "Rezervise kartu za odredjeni polazak"
+			},
+			"response": []
+		},
+		{
+			"name": "(Rezervacija) get by klijentID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"klijentID\": \"10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/rezervacija/klijent/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"rezervacija",
+						"klijent",
+						"all"
+					]
+				},
+				"description": "Vraca sve rezervacije za odredjenog klijenta"
+			},
+			"response": []
+		},
+		{
+			"name": "(Rezervacija) add rezervacija",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rezervacijaID\": 0,\r\n    \"klijent\": {\r\n        \"klijentID\": 10\r\n    },\r\n    \"polazak\": {\r\n        \"polazakID\": 227\r\n    }\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/rezervacija/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"rezervacija",
+						"add"
+					]
+				},
+				"description": "Rezervise kartu za odredjeni polazak"
+			},
+			"response": []
+		},
+		{
+			"name": "(Rezervacija) delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rezervacijaID\": \"9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/api/rezervacija/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"rezervacija",
+						"delete"
+					]
+				},
+				"description": "Vraca sve rezervacije za odredjenog klijenta"
+			},
+			"response": []
+		}
+	]
+}

@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Klijent;
-import rs.ac.bg.fon.silab.ZelezniceSrbije.service.impl.KlijentServiceImpl;
+import rs.ac.bg.fon.silab.ZelezniceSrbije.service.KlijentService;
 
 @RestController
 @RequestMapping("/api/klijent")
 public class KlijentController {
 
     @Autowired
-    private KlijentServiceImpl klijentService;
+    private KlijentService klijentService;
 
     @GetMapping("/all")
     public List<Klijent> getAllKlijent() {
@@ -31,7 +31,7 @@ public class KlijentController {
     }
 
     @PostMapping("/get")
-    public ResponseEntity<Klijent> getKlijentByEmailAndPassword( @RequestBody Klijent klijent) {
+    public ResponseEntity<Klijent> getKlijentByEmailAndPassword(@RequestBody Klijent klijent) {
         Klijent k = this.klijentService.getByEmailAndPassword(klijent.getEmail(), klijent.getLozinka());
         return new ResponseEntity<>(k, HttpStatus.OK);
     }

@@ -12,6 +12,7 @@ import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Linija;
 public interface LinijaRepository extends JpaRepository<Linija, Integer> {
 
 	@Query(value = "select * from linija", nativeQuery = true)
+        @Override
 	List<Linija> findAll();
 	
 }

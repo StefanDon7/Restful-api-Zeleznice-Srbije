@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Mesto;
-import rs.ac.bg.fon.silab.ZelezniceSrbije.service.impl.MestoServiceImpl;
+import rs.ac.bg.fon.silab.ZelezniceSrbije.service.MestoService;
 
 @RestController
 @RequestMapping("/api/mesto")
 public class MestoController {
 	
 	@Autowired
-	private MestoServiceImpl mestoService;
+	private MestoService mestoService;
 	
 	
 	@GetMapping("/all")

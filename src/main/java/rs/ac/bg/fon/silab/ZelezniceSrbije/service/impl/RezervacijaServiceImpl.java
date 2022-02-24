@@ -23,8 +23,8 @@ public class RezervacijaServiceImpl implements RezervacijaService{
     }
 
     @Override
-    public void addRezervacija(Rezervacija rezervacija) {
-        this.rezervacijaRepository.save(rezervacija);
+    public Rezervacija addRezervacija(Rezervacija rezervacija) {
+       return this.rezervacijaRepository.save(rezervacija);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class RezervacijaServiceImpl implements RezervacijaService{
     }
 
     @Override
-    public void delete(Rezervacija rezervacija) {
-        this.rezervacijaRepository.delete(rezervacija);
+    public void delete(int rezervacijaID) {
+        this.rezervacijaRepository.delete(new Rezervacija(rezervacijaID));
     }
 }

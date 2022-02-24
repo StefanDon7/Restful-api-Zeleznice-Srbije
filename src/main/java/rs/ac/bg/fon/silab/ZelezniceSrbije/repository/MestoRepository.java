@@ -12,6 +12,7 @@ import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Mesto;
 public interface MestoRepository extends JpaRepository<Mesto, Integer> {
 
 	@Query(value = "select * from mesto", nativeQuery = true)
+        @Override
 	List<Mesto> findAll();
 
 

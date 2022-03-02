@@ -12,7 +12,7 @@ import rs.ac.bg.fon.silab.ZelezniceSrbije.domen.Polazak;
 @Repository
 public interface PolazakRepository extends JpaRepository<Polazak, Integer> {
 
-    @Query(value = "select * from polazak", nativeQuery = true)
+    @Query(value = "select * from polazak order by datumpolaska desc", nativeQuery = true)
     List<Polazak> getAll();
 
     @Query(value = "select * from polazak where datumPolaska LIKE ?% order by datumPolaska asc", nativeQuery = true)

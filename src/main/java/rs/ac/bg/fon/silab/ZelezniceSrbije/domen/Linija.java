@@ -26,13 +26,13 @@ public class Linija {
     @Column(name = "nazivlinije")
     private String nazivLinije;
 
-    @NotBlank(message = "Polje minutaža je obavezno polje!")
-    @Min(value = 1, message = "Polje minutaža mora biti pozitivan broj!")
+//    @NotBlank(message = "Polje minutaža je obavezno polje!")
+//    @Min(value = 1, message = "Polje minutaža mora biti pozitivan broj!")
     @Column(name = "minutaza")
     private int minutaza;
 
-    @NotBlank(message = "Polje kilometraža je  obavezno polje!")
-    @Min(value = 1, message = "Polje kilometraža mora biti pozitivan broj!")
+//    @NotBlank(message = "Polje kilometraža je  obavezno polje!")
+//    @Min(value = 1, message = "Polje kilometraža mora biti pozitivan broj!")
     @Column(name = "kilometraza")
     private double kilometraza;
 
